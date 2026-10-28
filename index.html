@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skate Runner — juego de patineta</title>
+<meta name="description" content="Juego de skateboarding infinito hecho con HTML, CSS y JavaScript puro. Empuja, salta con ollie y esquiva los obstáculos.">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+
+<div class="page">
+
+  <header class="page__head">
+    <h1 class="logo">SKATE<span>RUNNER</span></h1>
+    <p class="tagline">Empuja. Salta. No choques.</p>
+  </header>
+
+  <main class="game" id="game">
+    <canvas class="game__canvas" id="canvas" width="960" height="340"
+            aria-label="Zona de juego de Skate Runner"></canvas>
+
+    <div class="hud" id="hud">
+      <div class="hud__block">
+        <span class="hud__label">PUNTOS</span>
+        <span class="hud__value" id="hud-score">00000</span>
+      </div>
+      <div class="hud__block">
+        <span class="hud__label">RÉCORD</span>
+        <span class="hud__value hud__value--best" id="hud-best">00000</span>
+      </div>
+      <div class="hud__speed">
+        <span class="hud__label">VELOCIDAD</span>
+        <span class="meter"><i id="hud-speed"></i></span>
+      </div>
+    </div>
+
+    <div class="scrim" id="scrim"></div>
+
+    <aside class="drawer" id="drawer" data-open="true">
+      <button class="drawer__tab" id="drawer-tab" type="button"
+              aria-expanded="true" aria-controls="drawer-panel"
+              title="Abrir o cerrar el menú (ESC)">
+        <span class="drawer__icon" id="drawer-icon">✕</span>
+      </button>
+      <div class="drawer__panel" id="drawer-panel">
+        <div class="drawer__body" id="drawer-body"></div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="page__foot">
+    <ul class="legend">
+      <li><kbd>→</kbd><span>empujar</span></li>
+      <li><kbd>←</kbd><span>frenar / atrás</span></li>
+      <li><kbd>ESPACIO</kbd><span>ollie</span></li>
+      <li><kbd>ESC</kbd><span>menú / pausa</span></li>
+    </ul>
+    <p class="colophon">HTML + CSS + JavaScript puro. Sin librerías, sin dependencias.</p>
+  </footer>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/input.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/player.js"></script>
+<script src="js/obstacles.js"></script>
+<script src="js/collision.js"></script>
+<script src="js/renderer.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/game.js"></script>
+
+</body>
+</html>
