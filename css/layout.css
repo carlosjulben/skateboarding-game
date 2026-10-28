@@ -1,0 +1,118 @@
+/* ============================================================
+   layout.css — estructura de la página (cabecera, juego, pie)
+   ============================================================ */
+
+.page {
+  width: min(960px, 100% - 2rem);
+  margin: 0 auto;
+  padding: 28px 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ---------- cabecera ---------- */
+
+.page__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 800;
+  letter-spacing: .12em;
+  color: var(--ink);
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.tagline {
+  font-size: .82rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ---------- zona de juego ---------- */
+
+.game {
+  position: relative;
+  overflow: hidden;
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--sky);
+  box-shadow: var(--shadow);
+  min-height: 240px;
+  isolation: isolate;
+}
+
+.game__canvas {
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  touch-action: manipulation;
+}
+
+/* ---------- pie ---------- */
+
+.page__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 24px;
+  flex-wrap: wrap;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .76rem;
+  color: var(--ink-soft);
+}
+
+.legend kbd {
+  display: inline-block;
+  min-width: 2.1rem;
+  padding: 3px 7px;
+  text-align: center;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 0 2px 0 var(--ink);
+}
+
+.colophon {
+  font-size: .74rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- pantallas pequeñas ---------- */
+
+@media (max-width: 560px) {
+  .page {
+    width: min(960px, 100% - 1rem);
+    padding-top: 18px;
+  }
+
+  .page__foot {
+    justify-content: center;
+    text-align: center;
+  }
+}

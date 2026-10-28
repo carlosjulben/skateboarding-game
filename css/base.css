@@ -1,0 +1,89 @@
+/* ============================================================
+   base.css — reset, variables globales y tipografía
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background: #eceff4;
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(255, 255, 255, .9), transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(47, 94, 168, .10), transparent 50%);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+figure {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+img,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+kbd {
+  font-family: var(--font);
+}
+
+:root {
+  /* tipografía retro-monoespaciada: existe en todo sistema, sin descargas */
+  --font: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono",
+          Menlo, Consolas, "DejaVu Sans Mono", monospace;
+
+  /* paleta */
+  --ink: #171b22;
+  --ink-soft: #5a6472;
+  --paper: #f7f9fc;
+  --sky: #8ed2f6;
+  --accent: #e8483c;
+  --accent-dark: #c2352b;
+  --amber: #f2b134;
+  --blue: #2f5ea8;
+  --panel: #1e2430;
+  --panel-2: #2b3444;
+  --panel-line: #3b4658;
+  --on-panel: #eef2f8;
+
+  --radius: 14px;
+  --radius-sm: 9px;
+  --shadow: 0 18px 40px rgba(18, 26, 40, .18);
+  --shadow-sm: 0 6px 16px rgba(18, 26, 40, .14);
+}
+
+:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+}
