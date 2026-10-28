@@ -364,9 +364,35 @@
   }
 
   function drawPlayer(ctx, player) {
-    ctx.drawImage(sprite(player.frame),
-      Math.round(player.x),
-      Math.round(player.y + player.bobY));
+    var px = Math.round(player.x);
+    var py = Math.round(player.y + player.bobY);
+
+    ctx.drawImage(sprite(player.frame), px, py);
+
+    /* en el aire la tabla va aparte, para poder girarla (kickflip) */
+    if (player.frame !== 'AIR') return;
+
+    var board = sprite('BOARD');
+    var by = py + (SPRITES.AIR.length - 2) * SCALE;
+
+    if (player.flipT < 0) {
+      ctx.drawImage(board, px, by);
+      return;
+    }
+
+    /* 360° sobre su eje largo: la escala Y sigue a cos(angle),
+       así la tabla "da la vuelta" de lado sin salirse de su sitio */
+    var t = player.flipT / SK.CONFIG.player.flipDuration;
+    var sy = Math.cos(t * Math.PI * 2) || 0.02;
+    var cx = px + board.width / 2;
+    var cy = by + board.height / 2;
+
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.scale(1, sy);
+    ctx.translate(-cx, -cy);
+    ctx.drawImage(board, px, by);
+    ctx.restore();
   }
 
   function drawParticles(ctx) {

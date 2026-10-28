@@ -198,6 +198,15 @@
       });
     },
 
+    onFlip: function () {
+      SK.Audio.flip();
+      var p = SK.Player.state;
+      SK.Renderer.dust(p.x + p.w / 2, p.y + p.h * 0.85, 8, {
+        color: '#ffe9a8', vxMin: -70, vxMax: 70,
+        vyMin: -45, vyMax: 45, grav: 220, lifeMax: 0.35, sizeMax: 5
+      });
+    },
+
     onLand: function () {
       SK.Audio.land();
       var p = SK.Player.state;
@@ -235,6 +244,7 @@
       left: SK.Input.isDown('ArrowLeft'),
       jumpHeld: jumpHeld,
       jumpPressed: jumpPressed,
+      flipPressed: framePressed.indexOf('KeyK') >= 0,
       moving: Math.abs(G.speed) > 60
     };
 

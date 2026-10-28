@@ -6,18 +6,18 @@
 
 .hud {
   position: absolute;
-  top: 10px;
-  right: 12px;
+  top: clamp(10px, 1.2vw, 18px);
+  right: clamp(12px, 1.3vw, 20px);
   z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 2px;
-  padding: 8px 11px;
+  gap: clamp(2px, .3vw, 4px);
+  padding: clamp(8px, .9vw, 14px) clamp(11px, 1.1vw, 17px);
   border-radius: var(--radius-sm);
   background: rgba(23, 27, 34, .78);
   color: #fff;
-  font-size: clamp(.62rem, 1.6vw, .78rem);
+  font-size: clamp(.66rem, 1.05vw, .95rem);
   letter-spacing: .1em;
   pointer-events: none;
   backdrop-filter: blur(2px);
@@ -57,8 +57,8 @@
 
 .meter {
   display: block;
-  width: 96px;
-  height: 6px;
+  width: clamp(96px, 9vw, 150px);
+  height: clamp(6px, .5vw, 8px);
   overflow: hidden;
   background: rgba(255, 255, 255, .22);
   border-radius: 99px;
@@ -114,7 +114,7 @@
 }
 
 .drawer__panel {
-  width: min(330px, 84%);
+  width: min(400px, 84%);
   height: 100%;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -127,20 +127,20 @@
 .drawer__body {
   display: flex;
   flex-direction: column;
-  gap: clamp(8px, 2vh, 14px);
-  padding: clamp(14px, 3vh, 24px) clamp(14px, 3vw, 22px);
+  gap: clamp(9px, 1.6vh, 16px);
+  padding: clamp(16px, 3.2vh, 30px) clamp(16px, 2.4vw, 30px);
 }
 
 .drawer__tab {
   position: absolute;
   left: 100%;
-  top: 10px;
+  top: clamp(10px, 1.2vw, 18px);
   margin-left: 7px;
-  width: 40px;
-  height: 40px;
+  width: clamp(40px, 3.2vw, 52px);
+  height: clamp(40px, 3.2vw, 52px);
   display: grid;
   place-items: center;
-  font-size: 1rem;
+  font-size: clamp(1rem, 1.3vw, 1.3rem);
   color: var(--on-panel);
   background: var(--panel-2);
   border: 2px solid var(--ink);
@@ -162,14 +162,14 @@
 /* ---------------- contenido del panel ---------------- */
 
 .eyebrow {
-  font-size: .64rem;
+  font-size: clamp(.64rem, .8vw, .8rem);
   letter-spacing: .24em;
   text-transform: uppercase;
   color: var(--amber);
 }
 
 .panel__title {
-  font-size: clamp(1.15rem, 3.4vw, 1.6rem);
+  font-size: clamp(1.3rem, 2.6vw, 2.1rem);
   font-weight: 800;
   letter-spacing: .08em;
   line-height: 1.1;
@@ -180,7 +180,7 @@
 }
 
 .panel__text {
-  font-size: .78rem;
+  font-size: clamp(.78rem, 1vw, .95rem);
   line-height: 1.55;
   color: #b6c1d2;
 }
@@ -188,11 +188,11 @@
 .results {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  gap: clamp(8px, .8vw, 12px);
 }
 
 .results div {
-  padding: 9px 10px;
+  padding: clamp(9px, 1vw, 13px) clamp(10px, 1vw, 14px);
   background: var(--panel-2);
   border: 1px solid var(--panel-line);
   border-radius: var(--radius-sm);
@@ -200,13 +200,13 @@
 
 .results span {
   display: block;
-  font-size: .6rem;
+  font-size: clamp(.6rem, .7vw, .72rem);
   letter-spacing: .18em;
   color: #8e9bb0;
 }
 
 .results strong {
-  font-size: 1.18rem;
+  font-size: clamp(1.18rem, 1.8vw, 1.6rem);
   font-variant-numeric: tabular-nums;
   color: #fff;
 }
@@ -223,8 +223,8 @@
   justify-content: center;
   gap: 8px;
   width: 100%;
-  padding: 11px 14px;
-  font-size: .84rem;
+  padding: clamp(11px, 1.5vh, 16px) clamp(14px, 1.4vw, 20px);
+  font-size: clamp(.84rem, 1.05vw, 1rem);
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -272,8 +272,8 @@
 .keys {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 10px;
+  gap: clamp(6px, .7vh, 9px);
+  padding: clamp(10px, 1.2vh, 14px);
   background: rgba(255, 255, 255, .045);
   border: 1px solid var(--panel-line);
   border-radius: var(--radius-sm);
@@ -283,16 +283,16 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  font-size: .72rem;
+  font-size: clamp(.72rem, .9vw, .88rem);
   color: #b6c1d2;
 }
 
 .keys__row kbd {
   flex: 0 0 auto;
-  min-width: 3.4rem;
+  min-width: clamp(3.4rem, 4vw, 4.6rem);
   padding: 2px 6px;
   text-align: center;
-  font-size: .66rem;
+  font-size: clamp(.66rem, .8vw, .78rem);
   font-weight: 700;
   color: var(--ink);
   background: var(--on-panel);

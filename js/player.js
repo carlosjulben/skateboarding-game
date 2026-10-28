@@ -18,6 +18,7 @@
     frame: 'ROLL',
     pushPhase: 0,
     holdTime: 0,
+    flipT: -1,           // -1 = sin kickflip, >=0 = segundos transcurridos
     time: 0,
     bobY: 0
   };
@@ -37,6 +38,7 @@
     P.frame = 'ROLL';
     P.pushPhase = 0;
     P.holdTime = 0;
+    P.flipT = -1;
     P.time = 0;
     P.bobY = 0;
   }
@@ -62,8 +64,8 @@
 
   /**
    * @param {number} dt        segundos desde el último frame
-   * @param {object} controls  { right, left, jumpHeld, jumpPressed, moving }
-   * @param {object} events    { onJump, onLand, onPush }
+   * @param {object} controls  { right, left, jumpHeld, jumpPressed, flipPressed, moving }
+   * @param {object} events    { onJump, onLand, onPush, onFlip }
    */
   function update(dt, controls, events) {
     var cfg = SK.CONFIG.player;
@@ -93,6 +95,16 @@
       P.bobY = 0;
       P.frame = 'AIR';
 
+      /* --- kickflip: solo en el aire y si no hay otro en curso --- */
+      if (controls.flipPressed && P.flipT < 0) {
+        P.flipT = 0;
+        if (events && events.onFlip) events.onFlip();
+      }
+      if (P.flipT >= 0) {
+        P.flipT += dt;
+        if (P.flipT >= cfg.flipDuration) P.flipT = -1;
+      }
+
       /* mantener la barra = ollie más alto, con tope */
       var g = cfg.gravity;
       if (controls.jumpHeld && P.vy < 0 && P.holdTime < cfg.jumpHoldMax) {
@@ -109,6 +121,7 @@
         P.y = floor;
         P.vy = 0;
         P.grounded = true;
+        P.flipT = -1;                  // la tabla vuelve a su sitio
         if (events && events.onLand) events.onLand();
       }
     }

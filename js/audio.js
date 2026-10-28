@@ -107,6 +107,11 @@
       noise(0.07, 0.06, 1600, 700, 'bandpass');
     },
 
+    flip: function () {
+      tone('triangle', 420, 980, 0.2, 0.13);
+      noise(0.16, 0.1, 2600, 5400, 'bandpass');
+    },
+
     land: function () {
       noise(0.1, 0.13, 1100, 260);
       tone('sine', 150, 70, 0.1, 0.14);

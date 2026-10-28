@@ -15,6 +15,7 @@ instalar nada.
 | **→** | Empujar / acelerar |
 | **←** | Frenar y dar marcha atrás |
 | **Espacio** (o **↑**) | Ollie — mantén pulsado para saltar más alto |
+| **K** | Kickflip, estando en el aire |
 | **Esc** | Abrir / cerrar el menú (pausa) |
 | **Enter** o botón | Jugar, reintentar, reanudar |
 
@@ -54,6 +55,11 @@ globales sueltas y el orden de carga es explícito en el HTML.
 - **Dificultad:** la velocidad de crucero y la frecuencia de obstáculos crecen con
   la distancia recorrida. El hueco entre obstáculos se calcula en *tiempo* y con un
   suelo proporcional a la velocidad máxima, para que nunca sea injusto.
+- **Escenario:** el lienzo mantiene su proporción 960×340 pero escala con la
+  ventana (nunca la desborda); HUD, panel y textos usan `clamp()` para
+  acompañar ese tamaño.
+- **Trucos:** además del ollie, pulsando **K** en el aire se hace un *kickflip*
+  (la tabla gira 360° sobre su eje durante 0,5 s, dentro de la duración del salto).
 - **Puntuación:** metros recorridos, con récord persistente en `localStorage`.
 - **Efectos:** polvo al empujar y aterrizar, chispas y sacudida al chocar,
   líneas de velocidad, parallax de nubes / edificios / valla.

@@ -24,6 +24,7 @@
         '<div class="keys__row"><kbd>→</kbd><span>empujar / acelerar</span></div>' +
         '<div class="keys__row"><kbd>←</kbd><span>frenar y marcha atrás</span></div>' +
         '<div class="keys__row"><kbd>ESPACIO</kbd><span>ollie (mantén para más alto)</span></div>' +
+        '<div class="keys__row"><kbd>K</kbd><span>kickflip, estando en el aire</span></div>' +
         '<div class="keys__row"><kbd>ESC</kbd><span>abrir / cerrar este menú</span></div>' +
       '</div>';
   }

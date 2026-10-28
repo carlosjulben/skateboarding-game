@@ -20,7 +20,8 @@
       jumpVel: -560,             // px/s
       jumpHoldFactor: 0.5,       // gravedad reducida manteniendo el salto
       jumpHoldMax: 0.22,         // segundos máximos de impulso extra
-      maxFall: 1700              // velocidad terminal
+      maxFall: 1700,             // velocidad terminal
+      flipDuration: 0.5          // duración del kickflip (K, en el aire)
     },
 
     speed: {
@@ -141,6 +142,13 @@
       '.....pp..pp.....',
       '.....pp..pp.....',
       '.....kkk.kkk....',
+      '................',
+      '................'
+    ],
+
+    /* la tabla se dibuja aparte para poder girarla en el ollie:
+       en AIR no está incrustada en el sprite */
+    BOARD: [
       '....wwwwwwwwww..',
       '.....d......d...'
     ],
